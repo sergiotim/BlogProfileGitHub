@@ -1,7 +1,6 @@
 import { SummaryAnchors, SummaryContainer, SummaryHeader } from "./styles";
 
-import { userApi } from "../../../../lib/axios";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import { ArrowUpRight, Buildings, GithubLogo, Users } from "phosphor-react";
 
@@ -20,16 +19,6 @@ export function Summary() {
   // "https://api.github.com/users", "/lucaspedronet"
   // "https://api.github.com/search"
   // "https://api.github.com/repos/lucaspedronet/TudoLista/issues"
-
-  async function fecthUserData() {
-    const response = await userApi.get("/lucaspedronet");
-
-    setUser(response.data);
-  }
-
-  useEffect(() => {
-    fecthUserData();
-  }, []);
 
   return (
     <SummaryContainer>

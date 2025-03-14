@@ -13,47 +13,11 @@ import {
   PostTitle,
 } from "./styles";
 
-import { NavLink, useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
-import { issuePostApi } from "../../lib/axios";
+import { NavLink } from "react-router-dom";
 import { dateFormatter } from "../../utils/formatter";
 
-interface Issue {
-  number: number;
-  title: string;
-  body: string;
-  created_at: string;
-  user: { login: string };
-  comments: number;
-  html_url: string;
-}
 
 export function Post() {
-  let { number } = useParams();
-  const [issueData, setIssueData] = useState<Issue | null>(null);
-
-  async function fetchIssue() {
-    const response = await issuePostApi.get(`/${number}`);
-    setIssueData(response.data);
-  }
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      fetchIssue();
-    }, 1000);
-
-    return () => clearTimeout(timer);
-  }, [number]);
-
-  if (!issueData) {
-    return (
-      <p style={{ textAlign: "center", paddingTop: "1rem" }}>
-        Carregando Post...
-      </p>
-    );
-  }
-
-  console.log(issueData);
 
   return (
     <PostContainer>

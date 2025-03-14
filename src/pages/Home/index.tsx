@@ -1,6 +1,6 @@
 
 import { Summary } from "./components/Summary";
-import { HomeContainer} from "./styles";
+import { HomeContainer } from "./styles";
 
 export function Home() {
 
