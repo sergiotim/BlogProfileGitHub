@@ -17,6 +17,10 @@ interface User {
 export function Summary() {
   const [user, setUser] = useState<User | undefined>(undefined);
 
+  // "https://api.github.com/users", "/lucaspedronet"
+  // "https://api.github.com/search"
+  // "https://api.github.com/repos/lucaspedronet/TudoLista/issues"
+
   async function fecthUserData() {
     const response = await userApi.get("/lucaspedronet");
 
