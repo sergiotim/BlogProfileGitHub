@@ -1,6 +1,6 @@
 import { SummaryAnchors, SummaryContainer, SummaryHeader } from "./styles";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { ArrowUpRight, Buildings, GithubLogo, Users } from "phosphor-react";
 
@@ -19,6 +19,21 @@ export function Summary() {
   // "https://api.github.com/users", "/lucaspedronet"
   // "https://api.github.com/search"
   // "https://api.github.com/repos/lucaspedronet/TudoLista/issues"
+
+  function fetchUser() {
+    fetch("https://api.github.com/users/lucaspedronet")
+      .then((response) => response.json()) // response.json() formatando retorno da api para JSON
+      .then((data) => {
+        const responseData = data as User;
+
+        setUser(responseData);
+      });
+  }
+
+  useEffect(() => { 
+    console.log("Montado");
+    fetchUser(); // chamando a função fetchUser
+  }, []);
 
   return (
     <SummaryContainer>
