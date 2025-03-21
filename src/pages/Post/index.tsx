@@ -34,33 +34,33 @@ export function Post() {
             </p>
           </div>
           <div>
-            <a href={issueData.html_url} target="_blank">
+            <a href="#" target="_blank">
               VER NO GITHUB
               <ArrowUpRight size={16} />
             </a>
           </div>
         </PostTitle>
-        <h1>{issueData.title}</h1>
+        <h1></h1>
         <PostAnchors>
           <div>
             <GithubLogo size={18} />
-            <span>{issueData.user.login}</span>
+            <span></span>
           </div>
 
           <div>
             <Calendar size={18} />
-            <span>{dateFormatter.format(new Date(issueData.created_at))}</span>
+            <span></span>
           </div>
 
           <div>
             <ChatCircle size={18} />
-            <span>{issueData.comments} comentários</span>
+            <span> comentários</span>
           </div>
         </PostAnchors>
       </PostHeader>
 
       <PostContent>
-        <p>{issueData.body}</p>
+        <p></p>
       </PostContent>
     </PostContainer>
   );
