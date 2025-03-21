@@ -1,22 +1,15 @@
-import { dateFormatter } from "../../../../utils/formatter";
+// import { dateFormatter } from "../../../../utils/formatter";
 import { IssuesContainer, StyledNavLink } from "./styles";
 
-interface IssuesProps {
-  number: number;
-  title: string;
-  body: string;
-  created_at: string;
-}
-
-export function Issues({ number, title, body, created_at }: IssuesProps) {
+export function Issues() {
   return (
     <IssuesContainer>
-      <StyledNavLink to={`/post/${number}`}>
+      <StyledNavLink to="/issue">
         <div>
-          <h2>{title}</h2>
-          <span>{dateFormatter.format(new Date(created_at))}</span>
+          <h2>Exemplo de issue</h2>
+          <span>20/03/2025</span>
         </div>
-        <p>{body?.length > 200 ? `${body?.slice(0, 200)}...` : body}</p>
+        <p>body</p>
       </StyledNavLink>
     </IssuesContainer>
   );
