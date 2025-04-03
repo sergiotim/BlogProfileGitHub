@@ -6,7 +6,8 @@ export const StyledNavLink = styled(NavLink)`
 `;
 
 export const IssuesContainer = styled.div`
-  max-width: 26rem;
+  margin-top: 0.5rem;
+  max-width: 49.5%;
   height: 16.25rem;
   width: 100%;
   overflow: hidden;
@@ -22,7 +23,7 @@ export const IssuesContainer = styled.div`
     margin-bottom: 1.25rem;
 
     h2 {
-      width: 80%;
+      width: 100%;
       font-size: 1.25rem;
       font-weight: bold;
       color: ${(props) => props.theme["gray-100"]};

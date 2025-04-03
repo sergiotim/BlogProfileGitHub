@@ -4,28 +4,32 @@ import { SummaryAnchors, SummaryContainer, SummaryHeader } from "./styles";
 import { ArrowUpRight, Buildings, GithubLogo, Users } from "phosphor-react";
 import { useEffect, useState } from "react";
 
+interface User {
+  avatar_url: string
+  name: string;
+  bio: string;
+  login: string;
+  company: string;
+  followers: number;
+  html_url: string;
+}
+
+
 export function Summary() {
-  const [user, setUser] = useState();
-  const [loading, setLoading] = useState(true);
+  const [user, setUser] = useState<User | undefined>(undefined);
 
   useEffect(() => {
     axios({
       method: "get",
       url: "https://api.github.com/users/sergiotim",
+      // headers: {'Authorization': 'TOKEN'}
     })
       .then((response) => {
         setUser(response.data);
-      })
-      .finally(() => setLoading(false));
+      });
   }, []);
 
-  if (loading) {
-    return (
-      <SummaryContainer>
-        <h1>Aguarde, carregar os dados do GitHub</h1>
-      </SummaryContainer>
-    );
-  }
+  
   return (
     <SummaryContainer>
       <img src={user?.avatar_url} />

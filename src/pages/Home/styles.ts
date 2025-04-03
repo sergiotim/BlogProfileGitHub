@@ -37,6 +37,6 @@ export const SearchBar = styled.div`
 
 export const IssuesAside = styled.div`
   display: flex;
-  gap: 2rem;
+  justify-content: space-between;
   flex-wrap: wrap;
 `;
